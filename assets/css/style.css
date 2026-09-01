@@ -1,0 +1,1255 @@
+/* ============================================
+   MY WORKOUT - GymPro Style
+   Dark theme con accenti lime
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* ============================================
+   VARIABILI CSS - GymPro Design System
+   ============================================ */
+:root {
+    /* Radius */
+    --radius-sm: calc(0.5rem - 4px);
+    --radius-md: calc(0.5rem - 2px);
+    --radius: 0.5rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: calc(0.5rem + 4px);
+    --radius-2xl: calc(0.5rem + 8px);
+    
+    /* Colors - oklch */
+    --background: oklch(0.17 0.012 260);
+    --foreground: oklch(0.96 0.005 250);
+    --surface: oklch(0.21 0.014 260);
+    --surface-strong: oklch(0.25 0.016 260);
+    --card: oklch(0.21 0.014 260);
+    --card-foreground: oklch(0.96 0.005 250);
+    --popover: oklch(0.21 0.014 260);
+    --popover-foreground: oklch(0.96 0.005 250);
+    
+    /* Primary - Lime */
+    --primary: oklch(0.86 0.2 122);
+    --primary-foreground: oklch(0.18 0.03 130);
+    
+    /* Secondary */
+    --secondary: oklch(0.27 0.016 260);
+    --secondary-foreground: oklch(0.95 0.005 250);
+    
+    /* Muted */
+    --muted: oklch(0.25 0.014 260);
+    --muted-foreground: oklch(0.68 0.014 258);
+    
+    /* Accent */
+    --accent: oklch(0.8 0.16 78);
+    --accent-foreground: oklch(0.2 0.03 70);
+    
+    /* Destructive */
+    --destructive: oklch(0.63 0.21 22);
+    --destructive-foreground: oklch(0.98 0.005 250);
+    
+    /* Success */
+    --success: oklch(0.75 0.16 155);
+    --success-foreground: oklch(0.18 0.03 155);
+    
+    /* Warning */
+    --warning: oklch(0.82 0.16 80);
+    --warning-foreground: oklch(0.2 0.03 70);
+    
+    /* Border & Input */
+    --border: oklch(0.31 0.014 260);
+    --input: oklch(0.31 0.014 260);
+    --ring: oklch(0.86 0.2 122);
+    
+    /* Macros */
+    --protein: oklch(0.72 0.16 25);
+    --carbs: oklch(0.78 0.15 230);
+    --fat: oklch(0.82 0.16 80);
+    --kcal: oklch(0.86 0.2 122);
+    
+    /* Charts */
+    --chart-1: oklch(0.86 0.2 122);
+    --chart-2: oklch(0.78 0.15 230);
+    --chart-3: oklch(0.82 0.16 80);
+    --chart-4: oklch(0.72 0.16 25);
+    --chart-5: oklch(0.75 0.1 300);
+    
+    /* Sidebar */
+    --sidebar: oklch(0.19 0.013 260);
+    --sidebar-foreground: oklch(0.93 0.005 250);
+    --sidebar-primary: oklch(0.86 0.2 122);
+    --sidebar-primary-foreground: oklch(0.18 0.03 130);
+    --sidebar-accent: oklch(0.26 0.016 260);
+    --sidebar-accent-foreground: oklch(0.96 0.005 250);
+    --sidebar-border: oklch(0.29 0.014 260);
+    --sidebar-ring: oklch(0.86 0.2 122);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.5;
+    padding-bottom: 80px;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.display {
+    font-family: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.num {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+.text-muted {
+    color: var(--muted-foreground);
+    font-size: 14px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.text-success {
+    color: var(--success);
+}
+
+.text-destructive {
+    color: var(--destructive);
+}
+
+.text-warning {
+    color: var(--warning);
+}
+
+/* ============================================
+   SPACING UTILITIES
+   ============================================ */
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.p-1 { padding: 8px; }
+.p-2 { padding: 16px; }
+.p-3 { padding: 24px; }
+
+/* ============================================
+   FLEX UTILITIES
+   ============================================ */
+.flex {
+    display: flex;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.gap-1 { gap: 8px; }
+.gap-2 { gap: 16px; }
+.gap-3 { gap: 24px; }
+
+/* ============================================
+   GRID UTILITIES
+   ============================================ */
+.grid {
+    display: grid;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 640px) {
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   STEP 2/4: LAYOUT, HEADER, NAV & COMPONENTS
+   ============================================ */
+
+/* ============================================
+   HEADER (Top Navigation)
+   ============================================ */
+.main-header {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 12px 0;
+}
+
+.header-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--foreground);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo a span {
+    color: var(--primary);
+}
+
+.menu-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    font-size: 20px;
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.menu-toggle:hover {
+    background: var(--surface-strong);
+}
+
+.nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    list-style: none;
+    padding: 8px 0;
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-menu.active {
+    display: block;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px 24px;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary);
+    background: var(--surface-strong);
+}
+
+/* ============================================
+   BOTTOM NAVIGATION (Mobile)
+   ============================================ */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+    z-index: 100;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--muted-foreground);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: var(--radius-md);
+    transition: all 0.2s;
+}
+
+.bottom-nav-item.active {
+    color: var(--primary);
+}
+
+.bottom-nav-icon {
+    font-size: 22px;
+    margin-bottom: 4px;
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+}
+
+/* ============================================
+   CARDS & SURFACES
+   ============================================ */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--foreground);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.highlight-card {
+    border-left: 4px solid var(--primary);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+}
+
+.btn-secondary {
+    background: var(--surface-strong);
+    color: var(--foreground);
+    border-color: var(--border);
+}
+
+.btn-danger {
+    background: var(--destructive);
+    color: var(--destructive-foreground);
+    border-color: var(--destructive);
+}
+
+.btn-success {
+    background: var(--success);
+    color: var(--success-foreground);
+    border-color: var(--success);
+}
+
+.btn-block {
+    display: flex;
+    width: 100%;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+/* ============================================
+   FORMS & INPUTS
+   ============================================ */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--foreground);
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.15); /* Lime ring */
+}
+
+.form-control::placeholder {
+    color: var(--muted-foreground);
+    opacity: 0.6;
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ============================================
+   STATS & DASHBOARD COMPONENTS
+   ============================================ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-icon {
+    font-size: 24px;
+    color: var(--primary);
+	width: 28px;
+	height: 28px;
+	object-fit:contain;
+}
+
+.stat-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--foreground);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.profile-photo-dashboard {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    margin-right: 16px;
+}
+
+.welcome-text h2 {
+    margin: 0 0 4px 0;
+    font-size: 24px;
+    color: var(--foreground);
+}
+
+/* Macro Bars */
+.macro-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.macro-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.macro-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+}
+
+.macro-bar {
+    height: 6px;
+    background: var(--surface-strong);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.macro-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.macro-fill.protein { background: var(--protein); }
+.macro-fill.carbs { background: var(--carbs); }
+.macro-fill.fats { background: var(--fat); }
+
+.macro-value {
+    font-size: 13px;
+    color: var(--foreground);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--foreground);
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    border-color: var(--primary);
+    background: var(--surface-strong);
+}
+
+.action-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   ALERTS
+   ============================================ */
+.alert {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-left: 4px solid transparent;
+}
+
+.alert-error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--destructive);
+    border-left-color: var(--destructive);
+}
+
+.alert-success {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--success);
+    border-left-color: var(--success);
+}
+
+.alert-warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+    border-left-color: var(--warning);
+}
+
+/* ============================================
+   RESPONSIVE DESKTOP
+   ============================================ */
+@media (min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .quick-actions {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .bottom-nav {
+        display: none;
+    }
+    
+    body {
+        padding-bottom: 0;
+    }
+}
+
+/* ============================================
+   STEP 3/4: WORKOUTS, EXERCISES, TIMER & NUTRITION
+   ============================================ */
+
+/* ============================================
+   WORKOUT & EXERCISE CARDS
+   ============================================ */
+.exercise-image-container {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: var(--surface-strong);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.exercise-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.exercise-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: var(--muted-foreground);
+    background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
+}
+
+.exercise-details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.exercise-detail-box {
+    background: var(--surface-strong);
+    padding: 12px 8px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.exercise-detail-label {
+    font-size: 10px;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.exercise-detail-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ============================================
+   TIMER DI RECUPERO
+   ============================================ */
+.timer-display {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    margin: 16px 0;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+}
+
+/* Overlay Timer a schermo intero */
+#timer-overlay {
+    background: rgba(15, 17, 20, 0.95) !important; /* Darker background */
+    backdrop-filter: blur(8px);
+}
+
+#timer-overlay-display {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 100px !important;
+    font-weight: 700;
+    color: var(--primary) !important;
+    text-shadow: 0 0 20px rgba(163, 230, 53, 0.3);
+}
+
+/* ============================================
+   MODAL RICERCA ARCHIVIO (Workouts)
+   ============================================ */
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+}
+
+.exercise-search-item {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+}
+
+.exercise-search-item:hover {
+    background: var(--surface-strong);
+}
+
+.exercise-search-item img, 
+.exercise-search-item .placeholder-img {
+    border: 1px solid var(--border);
+}
+
+/* ============================================
+   NUTRITION & FOOD ARCHIVE
+   ============================================ */
+.food-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.2s;
+}
+
+.food-item:active {
+    transform: scale(0.98);
+}
+
+.food-image {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    border: 1px solid var(--border);
+    background: var(--surface-strong);
+}
+
+.food-name {
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.food-macros {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--muted-foreground);
+    font-variant-numeric: tabular-nums;
+}
+
+.food-macros strong {
+    color: var(--foreground);
+}
+
+/* Macro Colors in Nutrition */
+.text-protein { color: var(--protein); }
+.text-carbs { color: var(--carbs); }
+.text-fat { color: var(--fat); }
+.text-kcal { color: var(--kcal); }
+
+/* Meal Section */
+.meal-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.meal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.meal-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--foreground);
+    text-transform: uppercase;
+}
+
+.meal-total {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.meal-macro {
+    text-align: center;
+}
+
+.meal-macro-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.meal-macro-label {
+    font-size: 10px;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+}
+
+/* ============================================
+   PROFILE & PROGRESS
+   ============================================ */
+.profile-photo-large {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 4px rgba(163, 230, 53, 0.2) !important;
+}
+
+.photo-placeholder {
+    border-color: var(--border) !important;
+    background: var(--surface-strong) !important;
+    color: var(--muted-foreground) !important;
+}
+
+/* Progress Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th {
+    text-align: left;
+    padding: 12px 8px;
+    color: var(--muted-foreground);
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+    letter-spacing: 0.05em;
+}
+
+td {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--border);
+    color: var(--foreground);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* RPE Info Box */
+.rpe-info {
+    background: rgba(163, 230, 53, 0.1); /* Primary with opacity */
+    border-left: 3px solid var(--primary);
+    padding: 12px;
+    border-radius: var(--radius-md);
+    font-size: 12px;
+    color: var(--foreground);
+    margin-top: 8px;
+    line-height: 1.6;
+}
+
+.rpe-info strong {
+    color: var(--primary);
+    display: block;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   SCROLLBAR CUSTOMIZATION (Dark Theme)
+   ============================================ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--surface-strong);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border);
+}
+
+/* ============================================
+   STEP 4/4: AUTH, FOOTER, ANIMATIONS & DESKTOP
+   ============================================ */
+
+/* ============================================
+   AUTH PAGES (Login & Register)
+   ============================================ */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: var(--background);
+    background-image: radial-gradient(circle at top right, var(--surface-strong), var(--background));
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-header h1 {
+    font-size: 36px;
+    color: var(--foreground);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+}
+
+.auth-header h1 span {
+    color: var(--primary);
+}
+
+.auth-header p {
+    color: var(--muted-foreground);
+    font-size: 15px;
+}
+
+.auth-form {
+    background: var(--card);
+    padding: 32px 24px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-xl);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    color: var(--muted-foreground);
+    font-size: 14px;
+}
+
+.auth-footer a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.main-footer {
+    text-align: center;
+    padding: 24px 16px;
+    color: var(--muted-foreground);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+}
+
+/* ============================================
+   ANIMATIONS & TRANSITIONS
+   ============================================ */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.card, .stat-card, .food-item, .exercise-item, .meal-section {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Hover effects for interactive elements */
+.card:hover {
+    border-color: var(--border); /* Keep subtle, or change to primary if desired */
+}
+
+.btn {
+	margin-top: 20px;
+    transition: all 0.2s ease;
+}
+
+/* ============================================
+   RESPONSIVE DESKTOP
+   ============================================ */
+@media (min-width: 768px) {
+    .container {
+        max-width: 800px;
+        padding: 24px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .quick-actions {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .exercise-image-container {
+        height: 350px;
+    }
+
+    /* Hide mobile bottom nav on desktop */
+    .bottom-nav {
+        display: none;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1000px;
+    }
+    
+    .exercise-image-container {
+        height: 400px;
+    }
+}
+
+/* ============================================
+   FINAL POLISH: Selection & Scrollbar
+   ============================================ */
+::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+/* Custom Scrollbar for Webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--surface-strong);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border);
+}
+
+/* Fix per Alert Warning */
+.alert-warning {
+    background: rgba(245, 158, 11, 0.15) !important; /* Giallo/Arancio trasparente */
+    color: var(--warning) !important;
+    border-left-color: var(--warning) !important;
+    border: 1px solid var(--warning);
+}
+
+/* Assicurati che la barra di progresso sia sempre verde quando 100% */
+.progress-fill[style*="width: 100%"] {
+    background: var(--success) !important;
+}
+
+/* Alert Errori GymPro */
+.alert-error {
+    background: rgba(239, 68, 68, 0.15) !important;
+    color: #fca5a5 !important;
+    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+    border-left: 4px solid #ef4444 !important;
+    padding: 16px !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 16px !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+}
+
+.alert-error strong {
+    color: #fecaca;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Assicurati che gli alert siano visibili sopra tutto */
+.alert {
+    position: relative;
+    z-index: 10;
+}
